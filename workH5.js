@@ -46,16 +46,46 @@ function removeClass(obj,sClass){
 var firstPage = id("firstPage");
 var workPage = id("workPage");
 var linkPage = id("linkPage");
+var managePage = id("managePage");
+var updatePage = id("updatePage");
+
+
 function first(){
 	var openBtn = id("openBtn");
+	var mask = id("mask");
+	var login = id("login");
+	var loginWrap = id("loginWrap");
+	var close = id("close");
+	var loginBtn = id("loginBtn");
 	bind(openBtn,"touchstart",turn1);
+	bind(login,"touchstart",show);
+	bind(loginBtn,"touchstart",turnManage);
 	function turn1(){
 		// workPage.style.backgroundSize = "120%";
 		removeClass(firstPage,"pageShow");
 		addClass(workPage,"pageShow");
-
+	}
+	function show() {
+		mask.style.display = "block";
+		loginWrap.style.height = "66.3%";
+		loginWrap.style.width = "81.1%";
+		loginWrap.style.opacity = "1";
+		loginWrap.style.zIndex = "41";
+		login.style.zIndex = "1";
+		bind(close,"touchstart",dishow);
+		function dishow(){			
+			mask.style.display = "none";
+			loginWrap.style.opacity = "0";
+			loginWrap.style.zIndex = "1";
+			login.style.zIndex = "50";	
+		}
+	}
+	function turnManage(){
+				removeClass(firstPage,"pageShow");
+				addClass(managePage,"pageShow");
 	}
 }
+/***作品页****/
 function second () {
 	var linkBtn = id("linkBtn");
 	bind(linkBtn,"touchstart",turn2);
@@ -69,6 +99,15 @@ function three () {
 	 bind(backFirstBtn,"touchstart",turn3);
 	 function turn3(){
 	 	removeClass(linkPage,"pageShow");
-	 	addClass(firstPage,"pageShow")
+	 	addClass(firstPage,"pageShow");
 	 }
+}
+/*****管理页***/
+function four(){
+	var uploadBtn = id("uploadBtn");
+	bind(uploadBtn,"touchstart",turn4);
+	function turn4(){
+		removeClass(managePage,"pageShow");
+		addClass(updatePage,"pageShow");
+	}
 }

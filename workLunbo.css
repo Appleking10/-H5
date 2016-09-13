@@ -1,0 +1,13 @@
+#container{
+	width:40%;height: 65.9%;overflow:hidden;position: relative;top:14.5%;left:12%;position: absolute;
+}
+
+#b,#c,#d,#e{
+    display: block;width:75%;height: 19%;position: absolute;-webkit-transition:width 0.2s,height 0.2s,left 0.2s;
+}
+#a{
+	display: block;width: 100%;height: 25.5%;position: absolute;-webkit-transition: width 0.2s,height 0.2s,left 0.2s;
+}
+#workPage{
+	position: relative;
+}

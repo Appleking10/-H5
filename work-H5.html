@@ -5,6 +5,8 @@
 	<!-- <meta name="viewport" content="width=640, user-scalable=no,target-densitydpi=device-dpi"> -->
 	 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 	 <link rel="stylesheet" type="text/css" href="workH5.css">
+	 <link rel="stylesheet" type="text/css" href="workLunbo.css">
+	 <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 	<title>维生数工作室作品集</title>
 	<style type="text/css" media="screen">
 
@@ -13,10 +15,27 @@
 </head>
 <body>
 	<section class="logo" style="z-index: 20;">
-
 		<img src="LOGO.png" alt="工作室logo" width="100%" />
 	</section>
 	<section id="firstPage" class="pages pageShow" >
+		<a id="login" class="icon">登录</a>
+		<section id="mask" class="mask"></section>
+		<section id="loginWrap" class="enter">
+			<span id="close">X</span>
+			<section id="loginContext">
+				<section class="loginInfo">
+					<img src="vtmer.png" alt="logo">
+					<p class="remindWord">管理者登录</p>
+					<section class="inputWrap">
+						<input type="text" id="username" name="username" size="30" maxlength="80" tabindex="3"/></br>
+						<input name="password" type="password" id="password" tabindex="2" onkeypress="if((event.keyCode ? event.keyCode : event.charCode) == 13) $('loginform').submit()" size="15" />
+					</section>
+					<span id="wrongWord"></span>
+				</section>
+			</section>
+			<section id="loginBtn">登录</section>
+		</section>
+
 		<section class="sLogo">
 			<img src="SLOGAN.png" alt="工作室logo" width="100%">
 		</section>
@@ -24,53 +43,18 @@
 		<a id="openBtn" class="button">打开作品</a>
 	</section>
 	<section id="workPage" class="pages">
+		<div id="container">
+			<div id="main">
+				<img id="a" src="a.jpg"  onclick="fun1()" style="top:0%;left:0%"/><img id="b" src="b.jpg" onclick="fun2()" style="top:29.8%;left:12.5%;"/><img id="c" src="c.jpg" onclick="fun3()" style="top:53.2%;left:12.5%"/>
+				<img id="d" src="d.jpg" onclick="fun4()" style="top:76.6%;left:12.5%"/>
+				<img id="e" src="c.jpg" onclick="fun5()" style="top:100%;left:12.5%"/>
+			</div>
+		</div> 
+  
 		<a id="linkBtn" class="button">联系我们</a>
 	</section>
 	<section id="linkPage" class="pages">
-		<!-- <li>
-		<section class="person">
-			<img src="Li.png" alt="黎老板的头像" />
-			<span class="bossChinaName">黎志航<br><span class="bossEnglishName">Zhihang Li</span></span>
-			<table cellspacing="26">
-					<tr>
-						<td>phone</td>
-						<td>18888888888</td>
-						<td class="linkFunction" id="call">拨号</td>
-					</tr>
-					<tr>
-						<td>wechat</td>
-						<td>WECHAT-NUMER</td>
-						<td class="linkFunction" id="copy">复制</td>
-					</tr>
-					<tr>
-						<td>email</td>
-						<td>lilaoban@163.com</td>
-						<td class="linkFunction" id="copy">复制</td>
-					</tr>
-			</table>
-			</li>
-			<li>
-		<section class="person">
-			<img src="Li.png" alt="黎老板的头像" />
-			<span class="bossChinaName">黎志航<br><span class="bossEnglishName">Zhihang Li</span></span>
-			<table cellspacing="26">
-					<tr>
-						<td>phone</td>
-						<td>18888888888</td>
-						<td class="linkFunction" id="call">拨号</td>
-					</tr>
-					<tr>
-						<td>wechat</td>
-						<td>WECHAT-NUMER</td>
-						<td class="linkFunction" id="copy">复制</td>
-					</tr>
-					<tr>
-						<td>email</td>
-						<td>lilaoban@163.com</td>
-						<td class="linkFunction" id="copy">复制</td>
-					</tr>
-			</table>
-			</li> -->
+		
 		<section class="personWrap">
 			<section class="personInfo">
 				<section class="personPotatoAndName">
@@ -125,13 +109,49 @@
 		</section>
 		<section id="backFirstBtn" class="button">回到首页</section>
 	</section>
-	<section id="managePage" class="pages"></section>
-	<section id="updatePage" class="pages"></section>
+	<section id="managePage" class="pages">
+		<section class="welcomeWrap">
+			<span class="welcomeWord">欢迎回家，VTMER!</span>
+			<span class="uploadBtn " id="uploadBtn"> 上传作品</span>
+		</section>
+		<ul class="manageWrap">	</ul>
+	</section>
+
+	<section id="updatePage" class="pages pagaShow">
+		<section class="editWrap">
+			<section class="uploadPictureWrap">
+				<section  class="wrap"id="uploadPicture">
+				</section>
+				<section class="wrap">
+					<span>点击左侧<br/>上传/替换图片</span>
+					<span>注：图片大小为240*180</span>
+				</section>
+		</section>
+			<section class="infoWrap">
+				<input type="text" name="" value="这是输入完成的标题" placeholder="" width="100%" height="10%">
+				<!-- <span>注：标题为15-35字符为宜</span> -->
+				<input type="text" name="" value="在此输入URL">
+				<input type="text" name="" value="请在此输入简介">
+				<!-- 注：简介为60-100字符为宜 -->
+				<input type="text" name="" value="请在此输入技术难点">
+				<!-- 注：分点描述，每点间空一行 -->
+				<section class="buttonWrap">
+					<section id="okBtn">完成</section>
+					<section id="canclBtn">取消</section>
+				</section>
+			</section>
+		</section>
+
+			
+		
+	</section>
 </body>
 <script type="text/javascript" src="workH5.js"></script>
+<script type="text/javascript" src="workLunbo.js"></script>
 <script type="text/javascript">
 	 first();
 	 second();
 	 three();
+	 four();
 </script>
 </html>
